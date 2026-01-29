@@ -19,8 +19,8 @@ resource "aws_security_group" "allow_tls" {
   }
 }
 resource "aws_instance" "terraform-ec2" {
-  ami           = "ami-0532be01f26a3de55"
-  instance_type = "t2.micro"
+  ami           = var.ami_id
+  instance_type = var.instance_size
 
   tags = {
     Name = "Reshwanth"
