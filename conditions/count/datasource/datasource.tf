@@ -1,33 +1,33 @@
-    data "aws_ami" "joindevops" {
-    most_recent      = true
-     owners           = ["973714476881"]
-    
-    filter {
-        name   = "name"
-        values = ["Redhat-9-DevOps-Practice"]
-    }
+data "aws_ami" "joindevops" {
+  most_recent = true
+  owners      = ["973714476881"]
 
-    filter {
-        name   = "root-device-type"
-        values = ["ebs"]
-    }
+  filter {
+    name   = "name"
+    values = ["Redhat-9-DevOps-Practice"]
+  }
 
-    filter {
-        name   = "virtualization-type"
-        values = ["hvm"]
-    }
-    }
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
 
-        data "aws_vpc" "default" {
-        default   = true
-    }
-    
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
 
-    output "ami_id" {
-        value = data.aws_ami.joindevops.id
-    }
+data "aws_vpc" "default" {
+  default = true
+}
 
-    output "aws_vpc" {
-        value = data.aws_vpc.default.id
-      
-    }
+
+output "ami_id" {
+  value = data.aws_ami.joindevops.id
+}
+
+output "aws_vpc" {
+  value = data.aws_vpc.default.id
+
+}
